@@ -15,7 +15,7 @@ export const useGetAllTodos = () => {
   return useQuery("todos", getTodos);
 };
 
-export const deleteTodo = async (id) => {
+export const deleteTodo = async (id: number) => {
   return axios.delete(`http://localhost:3000/todos/${id}`);
 };
 
@@ -30,7 +30,12 @@ export const useDeleteTodo = () => {
   });
 };
 
-export const updateStatus = async (data) => {
+export const updateStatus = async (data: {
+  id: number;
+  userId: number;
+  title: string;
+  completed: boolean;
+}) => {
   return axios.put(`http://localhost:3000/todos/${data.id}`, data);
 };
 
@@ -53,7 +58,12 @@ export const useUpdateStatus = () => {
   );
 };
 
-export const postTodo = async (data) => {
+export const postTodo = async (data: {
+  id: number;
+  userId: number;
+  title: string;
+  completed: boolean;
+}) => {
   return axios.post("http://localhost:3000/todos/", data);
 };
 

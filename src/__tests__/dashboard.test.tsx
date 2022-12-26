@@ -239,7 +239,6 @@ describe("update post", () => {
   //   mockGetUserDetails.mockImplementation(() => {});
   // });
   it("updates the data given id", async () => {
-    
     renderWithRouter(
       () => (
         <Route path={"http://localhost:3001"}>
@@ -248,10 +247,10 @@ describe("update post", () => {
       ),
       "/"
     );
-  //   const mockPutTodoDetails = useUpdateStatus as jest.MockedFunction<
-  //   typeof useUpdateStatus
-  // >;
-  // mockPutTodoDetails.mockImplementation(() => {});
+      const mockPutTodoDetails = useUpdateStatus as jest.MockedFunction<
+      typeof useUpdateStatus
+    >;
+    mockPutTodoDetails.mockImplementation();
     await expect(useUpdateStatus).toHaveBeenCalledWith("1");
   });
 });
@@ -261,7 +260,9 @@ describe("while loading", () => {
       typeof useGetAllTodos
     >;
     // mockGetUserDetails.mockImplementation(() => {
-    //   isLoading: true;
+    //   return {
+    //     isLoading: true,
+    //   };
     // });
   });
   it("renders loader", () => {
