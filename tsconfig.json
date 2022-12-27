@@ -25,7 +25,7 @@
       "tstypes.d.ts",
       "**/*.ts",
       "**/*.tsx","./src/index.d.ts"
-, "src/mocks/index.js"    ],
+, "src/mocks/index.js", "src/__tests__/dashboard.test.tsx"    ],
     "exclude": [
       "node_modules"
     ]

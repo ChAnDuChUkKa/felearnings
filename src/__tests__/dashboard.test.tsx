@@ -19,7 +19,6 @@ import { useGetAllTodos } from "../containers/index";
 import { usePostTodo } from "../containers/index";
 import { useUpdateStatus } from "../containers/index";
 import { useDeleteTodo } from "../containers/index";
-
 // describe("testing the component after loading", () => {
 //   let refetchMock = jest.fn();
 
@@ -217,67 +216,3 @@ test("no error with title", async () => {
 //   expect(errorElement).toBeInTheDocument()
 //   expect(result.current.data.data).toHaveLength(3);
 // })
-
-import { Route } from "react-router-dom";
-import { findByTestId, getByTestId } from "@testing-library/react";
-import { renderWithClient } from "../utils";
-
-jest.mock("../containers/index", () => ({
-  useGetPosts: jest.fn(),
-}));
-describe("update post", () => {
-  const data = {
-    id: 201,
-    userId: 1,
-    title: "chandu123",
-    completed: false,
-  };
-  // beforeEach(() => {
-  //   const mockGetUserDetails = useGetAllTodos as jest.MockedFunction<
-  //   typeof useGetAllTodos
-  // >;
-  //   mockGetUserDetails.mockImplementation(() => {});
-  // });
-  it("updates the data given id", async () => {
-    renderWithRouter(
-      () => (
-        <Route path={"http://localhost:3001"}>
-          <DashBoard />
-        </Route>
-      ),
-      "/"
-    );
-      const mockPutTodoDetails = useUpdateStatus as jest.MockedFunction<
-      typeof useUpdateStatus
-    >;
-    mockPutTodoDetails.mockImplementation();
-    await expect(useUpdateStatus).toHaveBeenCalledWith("1");
-  });
-});
-describe("while loading", () => {
-  beforeEach(() => {
-    const mockGetUserDetails = useGetAllTodos as jest.MockedFunction<
-      typeof useGetAllTodos
-    >;
-    // mockGetUserDetails.mockImplementation(() => {
-    //   return {
-    //     isLoading: true,
-    //   };
-    // });
-  });
-  it("renders loader", () => {
-    renderWithRouter(
-      () => (
-        <Route path="/">
-          <DashBoard />
-        </Route>
-      ),
-      "/"
-    );
-    // expect(findByTestId('loader')).toBeTruthy();
-  });
-});
-
-function renderWithRouter(arg0: () => JSX.Element, arg1: string) {
-  throw new Error("Function not implemented.");
-}
